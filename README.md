@@ -117,7 +117,7 @@ Kami menggunakan tools **CUPP** (*Common User Password Profiler*) untuk membuat 
 | <img src="https://github.com/user-attachments/assets/1a71b3c7-56ee-42ec-9785-1118e9aa5d50" width="100%"> | <img src="https://github.com/user-attachments/assets/fad91a04-9876-4bfe-8100-2261a2b6f729" width="100%"> |
 | *Persiapan tools generator* | *Membuat wordlist untuk username* |
 
-| Proses Generate Password | Lokasi Penyimpanan Wordlist |
+| Input Data Target | Lokasi Penyimpanan Wordlist |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/8468d66a-1338-4224-95f1-7dcddc45eca7" width="100%"> | <img src="https://github.com/user-attachments/assets/1920be1e-311d-4a46-b274-09967d1e318d" width="100%"> |
 | *Membuat wordlist untuk password* | *File `user.txt` tersimpan di direktori* |

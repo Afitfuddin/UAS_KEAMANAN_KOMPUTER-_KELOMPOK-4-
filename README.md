@@ -76,11 +76,11 @@ Pada antarmuka dashboard, terdapat fitur pemantauan utama berupa:<br>
 ## 🛠️ Tools & Lingkungan Pengujian
 Pengujian dilakukan menggunakan sistem operasi **Kali Linux** dengan *tools* berikut:
 
-**Nmap:** Untuk pemindaian jaringan dan port (*Information Gathering*).
-**CUPP (Common User Password Profiler):** Untuk membuat wordlist password berbasis *social engineering*.
-**Hydra:** Untuk melakukan serangan *Brute Force* pada form login.
-**Pentmenu (Hping3):** Untuk melakukan serangan DoS (TCP SYN Flood).
-**Tcpdump:** Untuk monitoring paket jaringan yang masuk.
+1. **Nmap:** Untuk pemindaian jaringan dan port (*Information Gathering*).<br>
+2. **CUPP (Common User Password Profiler):** Untuk membuat wordlist password berbasis *social engineering*.<br>
+3. **Hydra:** Untuk melakukan serangan *Brute Force* pada form login.<br>
+4. **Pentmenu (Hping3):** Untuk melakukan serangan DoS (TCP SYN Flood).<br>
+5. **Tcpdump:** Untuk monitoring paket jaringan yang masuk.<br>
 
 ---
 

@@ -67,8 +67,8 @@ Web Service ini dirancang sebagai pusat kendali dan monitoring (*dashboard*) yan
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/92c00702-3194-4041-bc8e-089907a239ad" width="100%"> | <img src="https://github.com/user-attachments/assets/42a7403f-97e4-4fe8-8034-70a0baa12d62" width="100%"> |
 
-Pada antarmuka dashboard, terdapat fitur pemantauan utama berupa:
-**Status Sistem & GPS:** Menampilkan waktu sinkronisasi WiFi, status penguncian sinyal GPS (*Locked/Searching*), dan jumlah satelit yang terhubung.
+Pada antarmuka dashboard, terdapat fitur pemantauan utama berupa:<br>
+**Status Sistem & GPS:** Menampilkan waktu sinkronisasi WiFi, status penguncian sinyal GPS (*Locked/Searching*), dan jumlah satelit yang terhubung. <br>
 **Log Darurat:** Mencatat riwayat penekanan tombol darurat beserta koordinat lokasi kejadian yang terintegrasi langsung dengan **Google Maps** untuk mempermudah pelacakan pengguna.
 
 ---

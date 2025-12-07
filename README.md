@@ -1,59 +1,86 @@
-# UAS Keamanan Komputer - Kelompok 4
-## Proyek: Tongkat Pintar untuk Tunanetra
-
-### 👥 Anggota Kelompok
-1. Muhammad Afitfuddin   [ 09030182327002 ]
-2. Muhammad Aren Saputra [ 09030282327026 ]
-3. Daniel 
-4. Tri Pramisari			   [ 0903028327035  ]
-5. Fatimah Syafa Aulia	 [ 09030182327065 ]
-6. Safitri				       [ 09030282327041 ] 
+# 🛡️ Penetration Testing: Smart Blind Stick Web Server (ESP32)
+Analisis kerentanan keamanan Web Server pada perangkat IoT Tongkat Pintar (Smart Blind Stick) berbasis ESP32 terhadap serangan Brute Force dan Denial of Service (DoS).
 
 ---
 
-## 📌 Latar Belakang
-Tuliskan latar belakang kenapa proyek tongkat pintar ini dibuat, masalah yang ingin diselesaikan, serta urgensi produk.
+## 👥 Anggota Kelompok 4
+Berikut adalah tim yang terlibat dalam penyusunan laporan dan pengujian ini:
+
+| No | Nama | NIM |
+|----|------|-----|
+| 1. | **Muhammad Afitfuddin** | 09030182327002 |
+| 2. | **Muhammad Aren Saputra** | 09030282327026 |
+| 3. | **Daniel** | [Masukkan NIM] |
+| 4. | **Tri Pramisari** | 0903028327035 |
+| 5. | **Fatimah Syafa Aulia** | 09030182327065 |
+| 6. | **Safitri** | 09030282327041 |
 
 ---
 
-## 🎯 Tujuan Proyek
-- Memberikan bantuan navigasi untuk tunanetra  
-- Mengurangi risiko tabrakan dengan halangan  
-- Meningkatkan keamanan pengguna  
+## 📌 Latar Belakang & Tujuan
+Proyek ini bertujuan untuk menguji keamanan antarmuka *Web Service* yang berfungsi sebagai dashboard monitoring untuk perangkat **Smart Blind Stick**. Web service ini memungkinkan komunikasi data telemetri secara *real-time* (status GPS, log tombol darurat).
+
+**Tujuan Pengujian:**
+1.  Melakukan **Information Gathering** untuk menemukan celah pada server.
+2.  Menguji ketahanan sistem autentikasi terhadap serangan **Brute Force**.
+3.  Menguji ketersediaan layanan (*availability*) saat menghadapi serangan **Denial of Service (DoS)**.
 
 ---
 
-## 🛠️ Alat & Bahan
-- Arduino UNO  
-- Sensor Ultrasonik HC-SR04  
-- Buzzer  
-- Motor getar (vibration motor)  
-- Power supply  
+## 🤖 Deskripsi Perangkat (Smart Blind Stick)
+Sebelum masuk ke pengujian keamanan, berikut adalah gambaran umum perangkat keras yang digunakan.
+
+### 1. Kegunaan & Cara Kerja
+Alat ini dirancang untuk membantu tunanetra dalam navigasi. Sistem bekerja dengan cara:
+* **Deteksi Halangan:** Menggunakan sensor ultrasonik untuk mendeteksi objek di depan pengguna. Jika jarak terlalu dekat <= 50 cm buzzer akan aktif sebagai peringatan.
+* **Monitoring Lokasi:** Perangkat dilengkapi modul GPS yang mengirimkan koordinat lokasi pengguna secara *real-time* ke Web Server ESP32.
+* **Tombol Darurat:** Jika ditekan, alat akan mencatat log kejadian dan lokasi terakhir ke dashboard admin.
+
+### 2. Skematik & Foto Alat
+Berikut adalah rancangan perangkat keras dan implementasi fisiknya:
+
+| Skematik Sederhana | Foto Alat (Implementasi) |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/a423605a-6873-4e7d-8c3a-f58e59b4c846" width="300"> | <img src="https://github.com/user-attachments/assets/d98e4d7b-c0b1-48c3-a816-8062d7e4d8f8" width="300"> |
+
+**Komponen Utama:**
+* [cite_start]ESP32 (Microcontroller & Web Server) [cite: 10, 28]
+* Sensor Ultrasonik HC-SR04
+* Modul GPS
+* Buzzer & Vibration Motor
 
 ---
 
-## ⚙️ Diagram Sistem / Blok
-(Insert gambar jika ada — tinggal drag & drop ke GitHub)
+## 🎯 Target Pengujian
+Bagian ini berfokus pada sisi *software* yang berjalan di atas perangkat keras tersebut.
+
+* **Perangkat:** ESP32 Web Server (Smart Blind Stick).
+* **Fitur Web:** Login Page, Dashboard Monitoring (GPS Status, Emergency Log).
+* [cite_start]**IP Target:** `10.172.145.82` (Berdasarkan pengujian lokal)[cite: 11].
+* [cite_start]**Port Terbuka:** 80/tcp (HTTP)[cite: 27].
+
+*(Drag & drop gambar Dashboard Web Service di sini)*
+![Dashboard Tampilan](link-gambar-dashboard-kamu.png)
 
 ---
 
-## 💡 Cara Kerja Alat
-Jelaskan bagaimana sensor membaca jarak, bagaimana buzzer/getaran diaktifkan, dll.
+## 🛠️ Tools & Lingkungan Pengujian
+Pengujian dilakukan menggunakan sistem operasi **Kali Linux** dengan *tools* berikut:
+
+* [cite_start]**Nmap:** Untuk pemindaian jaringan dan port (*Information Gathering*)[cite: 27].
+* [cite_start]**CUPP (Common User Password Profiler):** Untuk membuat wordlist password berbasis *social engineering*[cite: 32].
+* [cite_start]**Hydra:** Untuk melakukan serangan *Brute Force* pada form login[cite: 40].
+* [cite_start]**Pentmenu (Hping3):** Untuk melakukan serangan DoS (TCP SYN Flood)[cite: 51].
+* [cite_start]**Tcpdump:** Untuk monitoring paket jaringan yang masuk[cite: 66].
 
 ---
 
-## 🔌 Wiring / Rangkaian
-Jika ada gambar rangkaian, upload di sini.
+## ⚔️ Skenario Serangan 1: Brute Force Attack
 
----
+[cite_start]Metode ini mencoba menebak kredensial login (username & password) administrator dengan mencoba ribuan kombinasi secara otomatis[cite: 23].
 
-## 🧪 Pengujian
-- Jarak 50 cm → Buzzer OFF  
-- Jarak 20 cm → Buzzer ON  
-- Jarak < 10 cm → Buzzer + Getar  
-
----
-
-## 📜 Kode Program
-```cpp
-// masukkan kode Arduino kalian di sini
+### 1. Information Gathering
+Melakukan pengecekan port terbuka dan memastikan target hidup.
+```bash
+nmap 10.172.145.82
+ping 10.172.145.82

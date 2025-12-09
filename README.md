@@ -41,7 +41,7 @@ Berikut adalah rancangan perangkat keras dan implementasi fisiknya:
 
 | Skematik Sederhana | Foto Alat (Implementasi) |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/a423605a-6873-4e7d-8c3a-f58e59b4c846" width="300"> | <img src="https://github.com/user-attachments/assets/d98e4d7b-c0b1-48c3-a816-8062d7e4d8f8" width="300"> |
+| <img src="https://github.com/user-attachments/assets/a423605a-6873-4e7d-8c3a-f58e59b4c846" width="500"> | <img src="https://github.com/user-attachments/assets/9f3e57b5-e94d-4916-8368-caba8ba6750a" width="300"> |
 
 **Komponen Utama:**
 * **ESP32 Development Board:** Sebagai otak utama (mikrokontroler) dan penyedia layanan Web Server.
@@ -125,7 +125,7 @@ Kami menggunakan tools **CUPP** (*Common User Password Profiler*) untuk membuat 
 #### 4. Instalasi & Eksekusi Serangan (Hydra)
 Sebelum melakukan serangan, pastikan tools **Hydra** sudah terinstall. Jika belum, jalankan perintah instalasi berikut di terminal:
 
-`bash
+`
 sudo apt install hydra`
 
 Eksekusi Serangan (Exploitation) 
